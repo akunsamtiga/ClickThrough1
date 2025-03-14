@@ -5,22 +5,56 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Shapes with colors */
+.shape {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 20%;
+  opacity: 0.8;
+  filter: blur(10px);
+  transition: transform 0.2s ease-out;
+}
+
+.shape-circle {
+  border-radius: 50%;
+  background: radial-gradient(circle, #60a5fa, #3b82f6);
+}
+
+.shape-square {
+  border-radius: 10%;
+  background: linear-gradient(135deg, #f87171, #ef4444);
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 80px solid #a78bfa;
+  background: none;
+}
+
+.shape-hexagon {
+  clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  background: linear-gradient(135deg, #34d399, #059669);
 }
